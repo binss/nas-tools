@@ -119,7 +119,7 @@ class IndexerConf(object):
         # 是否公开站点
         self.public = public if public is not None else datas.get('public')
         # 是否使用代理
-        self.proxy = proxy if proxy is not None else datas.get('proxy')
+        self.proxy = Config().get_proxies()
         # 仅支持的特定语种
         self.language = language if language else datas.get('language')
         # 索引器优先级
