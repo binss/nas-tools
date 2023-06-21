@@ -334,7 +334,7 @@ class Downloader:
                     cookie=site_info.get("cookie"),
                     ua=site_info.get("ua"),
                     referer=page_url if site_info.get("referer") else None,
-                    proxy=proxy if proxy is not None else site_info.get("proxy")
+                    proxy=Config().get_proxies()
                 )
 
         # 解析完成
@@ -1241,7 +1241,7 @@ class Downloader:
             cookie=site_info.get("cookie"),
             ua=site_info.get("ua"),
             referer=page_url if site_info.get("referer") else None,
-            proxy=site_info.get("proxy")
+            proxy=Config().get_proxies()
         )
         if not files:
             log.error("【Downloader】读取种子文件集数出错：%s" % retmsg)
